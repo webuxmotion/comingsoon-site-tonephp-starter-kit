@@ -20,6 +20,8 @@
 	<link rel="stylesheet" type="text/css" href="/comingsoon/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/comingsoon/css/main.css">
 <!--===============================================================================================-->
+	<link href="/dist/styles.css" rel="stylesheet">
+
 </head>
 <body>
 	

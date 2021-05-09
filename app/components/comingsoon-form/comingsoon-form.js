@@ -11,8 +11,9 @@ if (form) {
       e.preventDefault();
 
       const isValid = !inputWrapper.classList.contains('alert-validate');
+      const isLoading = form.classList.contains('is-loading');
   
-      if (isValid) {
+      if (isValid && !isLoading) {
 
         sendEmail(input.value);
 
@@ -23,12 +24,16 @@ if (form) {
 
 const sendEmail = async (email) => {
   try {
+    form.classList.add('is-loading');
+
     const response = await axios
       .get(`/main/subscribe?email=${email}`);
 
     const res = response.data;
 
-    console.log(res);
+    setTimeout(() => {
+      form.classList.remove('is-loading');
+    }, 600);
   } catch (errors) {
     console.error(errors);
   }

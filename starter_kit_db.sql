@@ -2,9 +2,9 @@
 -- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Host: starter_kit-mysql-app:3306
--- Generation Time: Apr 18, 2021 at 04:48 PM
--- Server version: 5.7.33
+-- Host: starter-kit-mysql-app:3306
+-- Generation Time: May 09, 2021 at 01:06 PM
+-- Server version: 5.7.34
 -- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -21,6 +21,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `starter_kit_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `email`
+--
+
+CREATE TABLE `email` (
+  `id` int(11) NOT NULL,
+  `email` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -49,6 +60,12 @@ INSERT INTO `user` (`id`, `login`, `password`, `email`, `name`, `role`) VALUES
 --
 
 --
+-- Indexes for table `email`
+--
+ALTER TABLE `email`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -61,10 +78,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `email`
+--
+ALTER TABLE `email`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
