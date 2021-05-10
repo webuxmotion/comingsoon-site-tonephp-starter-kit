@@ -17,9 +17,10 @@ class MainController extends AppController {
     }
 
     public function subscribeAction() {
-        
         if (isAjax()) {
-            $email = $_GET['email'] ?? null;
+            $dataBody = getRequestData();
+            
+            $email = $dataBody['email'] ?? null;
 
             if ($email) {
                 $data = [
@@ -32,22 +33,21 @@ class MainController extends AppController {
                 $isEmailUnique = $m_email->checkUnique();
 
                 if (!$isEmailUnique) {
+                    http_response_code(409);
                     $res = [
-                        'error' => true,
                         'message' => 'This email is already in use.'
                     ];
-                }
-
-                if ($isEmailValid && $isEmailUnique) {
+                } else if ($isEmailValid) {
                     $m_email->save();
 
                     $res = [
-                        'message' => 'OK'
+                        'message' => 'Success! You subscribed.'
                     ];
                 }
+
             } else {
+                http_response_code(404);
                 $res = [
-                    'error' => true,
                     'message' => 'Please enter the email.'
                 ];
             }
@@ -55,5 +55,7 @@ class MainController extends AppController {
             echo json_encode($res);
             die;
         }
+
+        redirect();
     }
 }

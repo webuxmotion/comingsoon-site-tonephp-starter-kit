@@ -1,4 +1,6 @@
 <form class="w-full validate-form js-comingsoon-form comingsoon-form">
+  <div class="comingsoon-form__error-message js-error-message"></div>
+  <div class="comingsoon-form__success-message js-success-message"></div>
   <div class="wrap-input100 validate-input m-b-20 js-comingsoon-email-input-wrapper" data-validate = "Valid email is required: ex@abc.xyz">
     <input class="input100 placeholder0 s1-txt1 js-comingsoon-email-input" type="text" name="email" placeholder="Email">
     <span class="focus-input100"></span>
